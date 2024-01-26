@@ -321,7 +321,7 @@ $widthSite: 1146px;
     padding: 20px;
     position: absolute;
     display: none;
-    /*top: 50px;*/
+    z-index: 100;
     
 }
 .menu-title{
@@ -456,9 +456,11 @@ $widthSite: 1146px;
     justify-content: center;
 }
 
-.slide-img{
-    width: 597px;
-    height: 724px
+.carousel-control-prev-icon{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--%3E%3Cpath d='M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM231 127c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-71 71L376 232c13.3 0 24 10.7 24 24s-10.7 24-24 24l-182.1 0 71 71c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L119 273c-9.4-9.4-9.4-24.6 0-33.9L231 127z' fill='%234d4d4d'/%3E%3C/svg%3E");
+}
+.carousel-control-next-icon{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--%3E%3Cpath d='M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM281 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L136 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l182.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L393 239c9.4 9.4 9.4 24.6 0 33.9L281 385z' fill='%234d4d4d'/%3E%3C/svg%3E");
 }
 
 .product-description__content{
@@ -582,6 +584,123 @@ $widthSite: 1146px;
     color:#4d4d4d;
 } 
 /*single end*/
+//стили для checkout
+
+.checkout{
+    
+    &__item{ 
+        position: relative;
+        display: block;
+        transition: 0.3s;
+        overflow: hidden;
+        border-bottom: 2px solid #e6e6e6;
+        cursor: pointer;
+        height: 70px;
+    }
+   
+          
+    &__item[open] {
+        padding-bottom: 400px;
+      } 
+    &__item[open] .checkout__summary {
+        margin-bottom: 32px;
+      } 
+    &__summary{
+        background: #fff;
+        border-radius: 5px;
+        padding: 12px 24px;
+        font-size: 20px;
+        cursor: pointer;
+        list-style: none;
+        font-weight: 700;
+        transition: .3s;        
+    }
+    &__summary::-webkit-details-marker {
+        display: none;
+      }
+    
+    &__header{
+        font-size: 16px;
+        line-height: 1.2;
+        font-weight: 700;
+        text-transform: uppercase;
+        color:$colorSelectSiteText;
+        margin-top: 30px;
+    }
+    &__content{    
+        padding: 0 32px;
+        font-size: 18px;
+        margin-bottom: -50px;
+    }
+    &__flex{
+        display: flex;
+    }
+    &__content-left{
+        margin-left: 40px;
+    }
+    &__content-right{
+        margin-left: 250px;
+    }
+    &__heading{
+        font-size: 13px;
+        line-height: 1.2;
+        font-weight: 400;
+        text-transform: uppercase;
+        color:$colorSelectSiteText;
+    }
+    &__text{
+        font-size: 13px;
+        line-height: 20px;
+        font-weight: 400;
+        color: #b3b2b2;
+    }
+    &__radio{
+        font-size: 12px;
+        line-height: 1.2;
+        font-weight: 400;
+        text-transform: uppercase;
+        color:$colorSelectSiteText;
+    }
+    &__label{
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 400;
+        color:$colorSelectSiteText;
+    }
+    &__input{
+        width: 390px;
+        height: 45px;
+        background-color: #ffffff;
+        border: 1px solid #eaeaea;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 10px;
+    }
+    &__st{
+        color:#ff0d0d ;
+    }
+
+    &__button{
+        width: 180px;
+        height: 50px;
+        background-color: #ffffff;
+        border: 1px solid #eaeaea;
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 1.2;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #4a4a4a;
+        
+    }
+    &__button:hover{
+        color: $colorSelectSite;
+        border: 1px solid $colorSelectSite;
+    }
+}
+
+    
+//checkout end
 .slider{
     background-image: url(./img/image_frame_84.png);
     background-repeat: no-repeat;
