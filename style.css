@@ -11,6 +11,14 @@ a {
   text-decoration: none;
 }
 
+summary {
+  display: block;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
 img {
   width: 100%;
 }
@@ -937,6 +945,195 @@ img {
   background-color: #f16d7f;
 }
 
+.sidebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 71px;
+}
+.sidebar__details-box {
+  display: flex;
+  flex-direction: column;
+  width: 245px;
+  position: absolute;
+}
+.sidebar__details {
+  position: relative;
+  display: block;
+  max-width: 245px;
+  background: #ffffff;
+  transition: 0.3s;
+  overflow: hidden;
+  padding-top: 15px;
+}
+.sidebar__details::after {
+  position: absolute;
+  right: 24px;
+  top: 15px;
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-right: 4px solid #6f6e6e;
+  border-bottom: 4px solid #6f6e6e;
+  transform: rotate(45deg);
+  transform-origin: center;
+  transition: 0.3s;
+}
+.sidebar__details[open]::after {
+  transform: rotate(-135deg);
+  border-right: 4px solid #f16d7f;
+  border-bottom: 4px solid #f16d7f;
+}
+.sidebar__details[open] {
+  padding-bottom: 100px;
+}
+.sidebar__details[open] .sidebar__details-title {
+  margin-bottom: 32px;
+  color: #f16d7f;
+}
+.sidebar__details-title {
+  background: #fff;
+  padding: 12px 24px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #6f6e6e;
+  transition: 0.3s;
+  border-left: 5px solid #f16d7f;
+  border-bottom: 1px solid #ebebeb;
+}
+.sidebar__details-content {
+  padding: 0 32px;
+  font-size: 18px;
+  margin-bottom: -50px;
+}
+.sidebar__details-content p:last-child {
+  margin-bottom: 0;
+}
+.sidebar__details-content p:first-child {
+  margin-top: 0;
+}
+.sidebar__title {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #6f6e6e;
+  margin-bottom: 15px;
+}
+.sidebar__size {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.sidebar__size-top {
+  display: flex;
+  gap: 20px;
+}
+.sidebar__size-bottom {
+  display: flex;
+  gap: 32px;
+}
+.sidebar__size-text {
+  font-family: "Open Sans";
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #6f6e6e;
+  width: 13px;
+  height: 13px;
+  background-color: #ffffff;
+  border: 1px solid #ebebeb;
+}
+.sidebar input[type=range] {
+  width: 200px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.sidebar input[type=range]::-webkit-slider-runnable-track {
+  border-radius: 10px/100%;
+  height: 7px;
+  border: 1px solid #f0f0f0;
+  background-color: #f16d7f;
+}
+.sidebar input[type=range]::-webkit-slider-thumb {
+  background: #f16d7f;
+  border: 1px solid #f16d7f;
+  border-radius: 10px/100%;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  -webkit-appearance: none;
+  margin-top: -4px;
+}
+.sidebar input[type=range]::-moz-range-track {
+  border-radius: 10px/100%;
+  height: 5px;
+  border: 1px solid #f0f0f0;
+  background-color: #fff;
+}
+.sidebar input[type=range]::-moz-range-thumb {
+  background: #f16d7f;
+  border: 1px solid #f16d7f;
+  border-radius: 10px/100%;
+  cursor: pointer;
+}
+.sidebar__trend {
+  margin-left: 270px;
+}
+.sidebar__price-min-max {
+  display: flex;
+  justify-content: space-between;
+}
+.sidebar__price-text {
+  font-family: "Open Sans";
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #6f6e6e;
+}
+
+.order-cards {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 261px);
+  gap: 30px;
+  margin-left: 270px;
+}
+
+.card_button-st {
+  display: none;
+  width: 65px;
+  height: 38px;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid #FFF;
+  position: relative;
+}
+
+.card_button-st-path {
+  fill: #FFF;
+}
+
+.product:hover .card_button-st {
+  display: block;
+  box-shadow: 0 0 20px 0 #fff;
+  transition: box-shadow 0.2s;
+}
+
+.card_button-bottom {
+  display: flex;
+  margin-top: 8px;
+  margin-left: 65px;
+  gap: 8px;
+}
+
 .slider {
   background-image: url(./img/image_frame_84.png);
   background-repeat: no-repeat;
@@ -1071,8 +1268,8 @@ img {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 263px;
+  height: 280px;
   background: rgba(58, 56, 56, 0);
   transition: background 0.5s ease;
   z-index: 1;
@@ -1086,7 +1283,7 @@ img {
   margin-left: 65px;
   margin-top: 100px;
   cursor: pointer;
-  border: 1px solid white;
+  border: 1px solid #FFF;
   position: relative;
 }
 
